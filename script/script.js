@@ -1,8 +1,5 @@
 const allTicket =document.getElementsByClassName('ticket');
 
-
-
-
 for(const ticket of allTicket){
   ticket.addEventListener('click', function(event){
     const ticketName = event.target.innerText;
@@ -11,14 +8,12 @@ for(const ticket of allTicket){
     const netSeatCount = getConvertedValue('seat-count');
     
     if(netSeatCount + 1 > 4){
-      alert('limit sesh r hobe na');
+      alert('Cannot select more than four.');
       return;
     }
 
     event.target.setAttribute('disabled', false);
     event.target.style.backgroundColor = '#1DD100';
-
-    
 
     // update seat number 
     const seatCount = getConvertedValue('seat-count');
@@ -53,14 +48,12 @@ for(const ticket of allTicket){
   });
 };
 
-
 // update total
 function TotalCostUpdate(value){
   const totalPrice = getConvertedValue('total-price');
   const sum = totalPrice + value;
   document.getElementById('total-price').innerText = sum;
 }
-
 
 // update grand total 
 function grandTotalUpdate(status){
@@ -93,8 +86,6 @@ function grandTotalUpdate(status){
  
 }
 
-
-
 // converted value 
 function getConvertedValue(value){
   const price = document.getElementById(value).innerText;
@@ -102,9 +93,7 @@ function getConvertedValue(value){
   return convertPrice;
 }
 
-function showModal(){
-  document.getElementById('modal-btn-next').disabled = true;
-}
+
 
 
 
